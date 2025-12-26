@@ -1,0 +1,9 @@
+# Uploaded images
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+
+# Keep the directory but ignore contents
+!.gitkeep
