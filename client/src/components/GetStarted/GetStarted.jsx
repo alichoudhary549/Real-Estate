@@ -12,7 +12,7 @@ const GetStarted = () => {
             Find your residence soon
           </span>
           <button className="button" href>
-            <a href="Contact">Get Started</a>
+            <a href="Properties">Get Started</a>
           </button>
         </div>
       </div>
