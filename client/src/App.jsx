@@ -18,6 +18,8 @@ import Signup from './pages/Auth/Signup'
 import ForgotPassword from './pages/Auth/ForgotPassword'
 import ResetPassword from './pages/Auth/ResetPassword'
 import ContactPage from './pages/Contact/ContactPage'
+import Services from './pages/Services/Services'
+import AboutPage from './pages/About/About'
 import AdminLogin from './pages/Admin/AdminLogin'
 import AdminLayout from './components/Admin/AdminLayout'
 import AdminDashboard from './pages/Admin/AdminDashboard'
@@ -54,6 +56,8 @@ function App() {
                 <Route path="/forgot" element={<ForgotPassword />} />
                 <Route path="/reset" element={<ResetPassword />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/about" element={<AboutPage />} />
               </Route>
 
               {/* Admin Routes */}

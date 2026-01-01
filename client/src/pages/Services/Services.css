@@ -1,0 +1,58 @@
+.services-wrapper{
+  padding: 2.5rem 0 3.5rem;
+  background: linear-gradient(180deg, rgba(64,102,255,0.04) 0%, rgba(64,102,255,0.02) 100%);
+}
+.services-container{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.services-header{
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.services-header .primaryText{
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: .25rem;
+}
+.services-header .secondaryText{
+  color: #6b7280; /* subtle gray */
+  margin-bottom: 1.5rem;
+}
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.service-card{
+  background: #fff;
+  border: 1px solid rgba(31,62,114,0.06);
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(31,62,114,0.04);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.service-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(31,62,114,0.08);
+}
+.service-card .primaryText{
+  margin-bottom: .5rem;
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+.service-card .secondaryText{
+  color: #4b5563;
+  font-size: .95rem;
+}
+.services-footer-note{
+  margin-top: 1.5rem;
+  color: #374151;
+}
+@media (max-width: 768px){
+  .services-wrapper{padding:1.5rem 0}
+  .services-header{text-align:center}
+  .services-header .primaryText{font-size:1.5rem}
+  .services-grid{grid-template-columns: 1fr; gap: .9rem}
+  .service-card{padding:1rem}
+}
