@@ -1,6 +1,6 @@
 .about-wrapper{
   padding: 2.5rem 0 3.5rem;
-  background: linear-gradient(180deg, rgba(117, 117, 119, 0.04) 0%, rgba(100, 100, 104, 0.02) 100%);
+  background: linear-gradient(180deg, rgb(246, 250, 253) 0%, rgba(100, 100, 104, 0.02) 100%);
 }
 .about-container{max-width:980px;margin:0 auto}
 .about-header{margin-bottom:1rem;text-align:left}
