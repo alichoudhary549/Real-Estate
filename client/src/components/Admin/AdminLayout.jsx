@@ -73,6 +73,14 @@ const AdminLayout = () => {
               Manage Bookings
             </Link>
           </li>
+          <li className="admin-nav-item">
+            <Link
+              to="/admin/blogs"
+              className={`admin-nav-link ${location.pathname === '/admin/blogs' ? 'active' : ''}`}
+            >
+              Manage Blogs
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -84,4 +92,3 @@ const AdminLayout = () => {
 };
 
 export default AdminLayout;
-

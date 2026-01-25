@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./GetStarted.css";
+
 const GetStarted = () => {
   return (
     <div id="get-started" className="g-wrapper">
@@ -8,13 +10,13 @@ const GetStarted = () => {
           <span className="primaryText">Get started with PLotZo</span>
           <span className="secondaryText">
             Join PlotZo today and explore verified properties with the best market prices.
-Find your perfect home in minutes.
+            Find your perfect home in minutes.
             <br />
             Find your residence soon
           </span>
-          <button className="button" href>
-            <a href="Properties">Explor Properties</a>
-          </button>
+          <Link to="/properties" className="button">
+            Explore Properties
+          </Link>
         </div>
       </div>
     </div>

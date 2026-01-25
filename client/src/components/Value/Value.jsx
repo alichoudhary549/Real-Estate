@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Accordion,
   AccordionItem,
@@ -10,11 +10,9 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css";
 import {
   MdOutlineArrowDropDown,
-  MdOutlineArrowDropDownCircle,
 } from "react-icons/md";
 import data from "../../utils/accordion.jsx";
 import "./Value.css";
-// Demo styles, see 'Styles' section below for some notes on use.
 
 const Value = () => {
   return (
@@ -45,28 +43,29 @@ const Value = () => {
             preExpanded={[0]}
           >
             {data.map((item, i) => {
-              const [className, setClassName] = useState(null);
               return (
-                <AccordionItem className={`accordionItem ${className}`} uuid={i} key={i}>
+                <AccordionItem className="accordionItem" uuid={i} key={i}>
                   <AccordionItemHeading>
-                    <AccordionItemButton className="flexCenter accordionButton ">
-                        {/* just for getting state of item */}
+                    <AccordionItemButton className="flexCenter accordionButton">
                       <AccordionItemState>
-                        {({ expanded }) =>
-                          expanded
-                            ? setClassName("expanded")
-                            : setClassName("collapsed")
-                        }
+                        {({ expanded }) => (
+                          <>
+                            <div className="flexCenter icon">{item.icon}</div>
+                            <span className="primaryText">
+                              {item.heading}
+                            </span>
+                            <div className="flexCenter icon">
+                              <MdOutlineArrowDropDown 
+                                size={20} 
+                                style={{ 
+                                  transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                                  transition: 'transform 0.3s ease'
+                                }} 
+                              />
+                            </div>
+                          </>
+                        )}
                       </AccordionItemState>
-                      <div className="flexCenter icon">{item.icon}</div>
-                      <span
-                        className="primaryText"
-                      >
-                        {item.heading}
-                      </span>
-                      <div className="flexCenter icon">
-                        <MdOutlineArrowDropDown size={20} />
-                      </div>
                     </AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>

@@ -25,6 +25,8 @@ import authRoute from './routes/authRoute.js'
 import uploadRoute from './routes/uploadRoute.js'
 import adminRoute from './routes/adminRoute.js'
 import contactRoute from './routes/contactRoute.js'
+import blogRoute from './routes/blogRoute.js'
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -53,7 +55,7 @@ app.use('/api/auth', authRoute)
 app.use('/api/upload', uploadRoute)
 app.use('/api/admin', adminRoute)
 app.use('/api/contact', contactRoute)
-
+app.use('/api/blogs', blogRoute)
 // Global error handler
 app.use((err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode

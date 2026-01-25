@@ -18,12 +18,12 @@ const Header = () => {
   const isAuthenticatedLocal = !!authUser
   const { validateLogin } = useAuthCheck();
 
-
   const handleAddPropertyClick = () => {
     if (validateLogin()) {
       setModalOpened(true);
     }
   };
+
   return (
     <section className="h-wrapper" style={{ background: headerColor }}>
       <div className="flexCenter innerWidth paddings h-container">
@@ -39,17 +39,17 @@ const Header = () => {
           }}
         >
           <div
-            // ref={menuRef}
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
           >
             <NavLink to="/properties">Properties</NavLink>
-
+            <NavLink to="/blogs">Blog</NavLink>
             <NavLink to="/contact">Contact</NavLink>
 
             {/* add property */}
             <div onClick={handleAddPropertyClick}>Add Property</div>
             <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
+            
             {/* login button */}
             {!isAuthenticatedLocal ? (
               <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>

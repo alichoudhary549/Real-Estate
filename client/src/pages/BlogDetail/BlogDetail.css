@@ -1,0 +1,148 @@
+.blog-detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 80vh;
+  }
+  
+  .blog-back-link {
+    display: inline-block;
+    color: #4066ff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .blog-back-link:hover {
+    color: #2d4fc7;
+  }
+  
+  .blog-detail-article {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-detail-category {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #e8f0fe;
+    color: #4066ff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-detail-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f3e72;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .blog-detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    color: #666;
+    font-size: 0.95rem;
+  }
+  
+  .blog-detail-separator {
+    color: #ccc;
+  }
+  
+  .blog-detail-image {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  
+  .blog-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .blog-detail-content {
+    line-height: 1.8;
+    color: #333;
+    font-size: 1.1rem;
+  }
+  
+  .blog-detail-content h1,
+  .blog-detail-content h2,
+  .blog-detail-content h3 {
+    color: #1f3e72;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-detail-content h1 {
+    font-size: 2rem;
+  }
+  
+  .blog-detail-content h2 {
+    font-size: 1.75rem;
+  }
+  
+  .blog-detail-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .blog-detail-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-detail-content ul,
+  .blog-detail-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+  
+  .blog-detail-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .blog-detail-content a {
+    color: #4066ff;
+    text-decoration: underline;
+  }
+  
+  .blog-detail-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-detail-container {
+      padding: 1rem;
+    }
+  
+    .blog-detail-article {
+      padding: 1.5rem;
+    }
+  
+    .blog-detail-title {
+      font-size: 1.75rem;
+    }
+  
+    .blog-detail-image {
+      height: 250px;
+    }
+  
+    .blog-detail-content {
+      font-size: 1rem;
+    }
+  }

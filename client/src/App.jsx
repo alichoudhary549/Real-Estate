@@ -20,6 +20,9 @@ import ResetPassword from './pages/Auth/ResetPassword'
 import ContactPage from './pages/Contact/ContactPage'
 import Services from './pages/Services/Services'
 import AboutPage from './pages/About/About'
+import Blogs from './pages/Blogs/Blogs'
+import BlogDetail from './pages/BlogDetail/BlogDetail'
+import ManageBlogs from './pages/Admin/ManageBlogs'
 import AdminLogin from './pages/Admin/AdminLogin'
 import AdminLayout from './components/Admin/AdminLayout'
 import AdminDashboard from './pages/Admin/AdminDashboard'
@@ -58,6 +61,10 @@ function App() {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/blogs">
+                  <Route index element={<Blogs />} />
+                  <Route path=":slug" element={<BlogDetail />} />
+                </Route>
               </Route>
 
               {/* Admin Routes */}
@@ -67,6 +74,7 @@ function App() {
                 <Route path="/admin/users" element={<ManageUsers />} />
                 <Route path="/admin/properties" element={<ManageProperties />} />
                 <Route path="/admin/bookings" element={<ManageBookings />} />
+                <Route path="/admin/blogs" element={<ManageBlogs />} />
               </Route>
             </Routes>
           </Suspense>

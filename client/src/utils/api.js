@@ -345,3 +345,93 @@ export const sendContactMessage = async (formData) => {
     throw error;
   }
 };
+
+// Blog API functions
+export const getAllBlogs = async (category = 'All') => {
+  try {
+    const url = category === 'All' ? '/blogs' : `/blogs?category=${encodeURIComponent(category)}`
+    const response = await api.get(url, {
+      timeout: 10 * 1000,
+    })
+    return response.data
+  } catch (error) {
+    toast.error('Failed to fetch blogs')
+    throw error
+  }
+}
+
+export const getBlogBySlug = async (slug) => {
+  try {
+    const response = await api.get(`/blogs/${slug}`, {
+      timeout: 10 * 1000,
+    })
+    return response.data
+  } catch (error) {
+    toast.error('Failed to fetch blog')
+    throw error
+  }
+}
+
+// Admin Blog API functions
+export const getAllBlogsAdmin = async (token) => {
+  try {
+    const response = await api.get('/blogs/admin/all', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const createBlog = async (blogData, token) => {
+  try {
+    const response = await api.post(
+      '/blogs',
+      blogData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    return response.data
+  } catch (error) {
+    toast.error(error?.response?.data?.message || 'Failed to create blog')
+    throw error
+  }
+}
+
+export const updateBlog = async (blogId, blogData, token) => {
+  try {
+    const response = await api.put(
+      `/blogs/${blogId}`,
+      blogData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    return response.data
+  } catch (error) {
+    toast.error(error?.response?.data?.message || 'Failed to update blog')
+    throw error
+  }
+}
+
+export const deleteBlog = async (blogId, token) => {
+  try {
+    const response = await api.delete(`/blogs/${blogId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return response.data
+  } catch (error) {
+    toast.error(error?.response?.data?.message || 'Failed to delete blog')
+    throw error
+  }
+}

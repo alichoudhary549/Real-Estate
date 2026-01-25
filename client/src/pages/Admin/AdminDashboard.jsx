@@ -1,17 +1,34 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useAuth } from '../../context/AuthContext';
-import { getAdminDashboard } from '../../utils/api';
+import { getAdminDashboard, getAllBlogsAdmin } from '../../utils/api';
 import { PuffLoader } from 'react-spinners';
 import '../Admin/Admin.css';
 
 const AdminDashboard = () => {
   const { token } = useAuth();
+  
   const { data, isLoading, isError } = useQuery(
     'adminDashboard',
     () => getAdminDashboard(token),
     {
       refetchInterval: 30000, // Refetch every 30 seconds
+      enabled: !!token, // Only run if token exists
+    }
+  );
+
+  // Blog query - handle errors silently (empty array if error)
+  const { data: blogs, isLoading: blogsLoading, isError: blogsError } = useQuery(
+    'adminBlogs',
+    () => getAllBlogsAdmin(token),
+    { 
+      enabled: !!token,
+      refetchOnWindowFocus: false,
+      retry: 1, // Only retry once
+      onError: (error) => {
+        // Silently handle error - don't show toast for empty blogs
+        console.error('Failed to fetch blogs:', error);
+      },
     }
   );
 
@@ -65,10 +82,17 @@ const AdminDashboard = () => {
           <div className="dashboard-card-value">{data?.blockedUsers || 0}</div>
           <div className="dashboard-card-subtitle">Currently blocked</div>
         </div>
+
+        <div className="dashboard-card">
+          <div className="dashboard-card-title">Total Blogs</div>
+          <div className="dashboard-card-value">
+            {blogsLoading ? '...' : (blogsError ? 0 : (blogs?.length || 0))}
+          </div>
+          <div className="dashboard-card-subtitle">Published & drafts</div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default AdminDashboard;
-
